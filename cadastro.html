@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style-cad.css" rel="stylesheet" type="text/css"/>
+        <title>Fazer cadastro</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="form-image">
+                <img src="img/undraw_mobile_encryption_re_yw3o.svg" />
+            </div>
+            <div class="form">
+                <form action="jsp/Controle.jsp" method="post" name="frm_cadastro" autocomplete="off">
+                    <input type="hidden" name="hdn_operacao" value="CADASTRAR" />
+                    
+                    <div class="form-header">
+                        <div class="title">
+                            <h1>Cadastre-se</h1>
+                        </div>
+                        <div class="login-button">
+                            <button><a href="jsp/Entrar.jsp">Entrar</a></button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="firstname">Nome</label>
+                            <input id="username" type="text" name="txt_nome" placeholder="Digite seu Nome" maxlength="100" required />
+                        </div>
+                        <div class="input-box">
+                            <label  for="email">Email</label>
+                            <input id="email" type="email" name="txt_email" placeholder="Digite seu Email" maxlength="100" required />
+                        </div>
+                        <div class="input-box">
+                            <label  for="number">Celular</label>
+                            <input id="number" type="tel" name="txt_celular" maxlength="11" placeholder="Digite seu Número"required />
+                        </div>
+                        <div class="input-box">
+                            <label  for="password">Senha</label>
+                            <input id="txt_senha" type="password" name="txt_senha" placeholder="Digite uma Senha" maxlength="100" required />
+                        </div>
+                        <div class="input-box">
+                            <label  for="Confirmpassword">Confirme sua Senha</label>
+                            <input id="txt_confirmaSenha" type="password" name="txt_confirmaSenha" placeholder="Confirme a Senha" maxlength="100" required onblur="fcn_verificaSenhas();" />
+                        </div>
+                    </div>
+
+                    <div class="gender-inputs">
+                        <div class="gender-title">
+                            <h6>Gênero</h6>
+                        </div>
+
+                        <div class="gender-group">
+                            <div class="gender-input">
+                                <input type="radio" id="female" name="rad_genero" value="Feminino">
+                                <label for="female">Feminino</label>
+                            </div>
+                            <div class="gender-input">
+                                <input type="radio" id="male" name="rad_genero" value="Masculino">
+                                <label for="male">Masculino</label>
+                            </div>
+                            <div class="gender-input">
+                                <input type="radio" id="others" name="rad_genero" value="Outros">
+                                <label for="others">Outros</label>
+                            </div>
+                            <div class="gender-input">
+                                <input type="radio" id="none" name="rad_genero" value="Indefinido">
+                                <label for="none">Prefiro não dizer</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="continue-button">
+                        <button type="submit" style="color:white;">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function fcn_verificaSenhas() {
+                let senha = document.getElementById('txt_senha').value;
+                let confirmaSenha = document.getElementById('txt_confirmaSenha').value;
+
+                if (senha !== confirmaSenha) {
+                    alert("As senhas não conferem!");
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>
